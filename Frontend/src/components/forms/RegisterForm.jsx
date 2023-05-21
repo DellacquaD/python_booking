@@ -19,18 +19,12 @@ const RegisterForm = () => {
   };
 
   const postToApi = async (values) => {
-    console.log(values);
+    // Crear una copia del objeto values excluyendo confirmPassword
+    const { confirmPassword, ...valuesToSend } = values;
+    
     try {
-      const response = await axios.post(apiUser, {
-        firstname: values.name,
-
-        lastName: values.lastName,
-        username: values.username,
-        email: values.email,
-        password: values.password,
-      });
+      const response = await axios.post(apiUser, valuesToSend);
       navigate("/login");
-      console.log(response);
     } catch (error) {
       setConectionError(
         "Lamentablemente no ha podido registrarse. Por favor, intente más tarde"
@@ -39,8 +33,8 @@ const RegisterForm = () => {
   };
 
   const schema = yup.object({
-    name: yup.string().required("Este campo es obligatorio"),
-    lastName: yup.string().required("Este campo es obligatorio"),
+    first_name: yup.string().required("Este campo es obligatorio"),
+    last_name: yup.string().required("Este campo es obligatorio"),
     email: yup
       .string()
       .email("El correo electrónico ingresado no es válido")
@@ -66,8 +60,8 @@ const RegisterForm = () => {
     isSubmitting,
   } = useFormik({
     initialValues: {
-      name: "",
-      lastName: "",
+      first_name: "",
+      last_name: "",
       email: "",
       username: "",
       password: "",
@@ -92,39 +86,40 @@ const RegisterForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="userInfoFormRegister">
           <div className="nameInput">
-            <label htmlFor="name">Nombre</label>
+            <label htmlFor="first_name">Nombre</label>
             <input
               type="text"
-              id="name"
-              name="name"
-              value={values.name}
+              id="first_name"
+              name="first_name"
+              value={values.first_name}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={errors.name && touched.name ? "input-error" : ""}
+              className={
+                errors.first_name && touched.first_name ? "input-error" : ""
+              }
             />
-
-            {errors.name && touched.name && (
-              <p className="error">{errors.name}</p>
+            {errors.first_name && touched.first_name && (
+              <p className="error">{errors.first_name}</p>
             )}
           </div>
           <div className="lastNameInput">
-            <label htmlFor="lastName">Apellido</label>
+            <label htmlFor="last_name">Apellido</label>
             <input
               type="text"
               id="lastName"
-              name="lastName"
-              value={values.lastName}
+              name="last_name"
+              value={values.last_name}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={errors.email && touched.email ? "input-error" : ""}
+              className={
+                errors.last_name && touched.last_name ? "input-error" : ""
+              }
             />
-
-            {errors.lastName && touched.lastName && (
-              <p className="error">{errors.lastName}</p>
+            {errors.last_name && touched.last_name && (
+              <p className="error">{errors.last_name}</p>
             )}
           </div>
         </div>
-
         <label htmlFor="email">Correo electrónico</label>
         <input
           type="email"
@@ -135,12 +130,10 @@ const RegisterForm = () => {
           onBlur={handleBlur}
           className={errors.email && touched.email ? "input-error" : ""}
         />
-
         {errors.email && touched.email && (
           <p className="error">{errors.email}</p>
         )}
-
-        <label htmlFor="name">Username</label>
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           id="username"
@@ -150,11 +143,9 @@ const RegisterForm = () => {
           onBlur={handleBlur}
           className={errors.username && touched.username ? "input-error" : ""}
         />
-
         {errors.username && touched.username && (
           <p className="error">{errors.username}</p>
         )}
-
         <label htmlFor="password">Contraseña</label>
         <div id="showPass">
           <input

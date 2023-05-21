@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import users_db, cities_db, category_db
+from routers import users_db, cities_db, category_db, jwt_auth_users
 from routers.products import products_db
 from routers.reserve import reserve_db
 
@@ -26,6 +26,7 @@ app.include_router(products_db.router)
 app.include_router(cities_db.router)
 app.include_router(category_db.router)
 app.include_router(reserve_db.router)
+app.include_router(jwt_auth_users.router)
 
 @app.get("/")
 async def root():

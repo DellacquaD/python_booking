@@ -13,19 +13,59 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [connectionError, setConnectionError] = useState("");
-  const userLoggedIn = JSON.parse(localStorage.getItem("JWT"));
+  const userLoggedIn = JSON.parse(localStorage.getItem("userInfo"));
   const productReservedInLocal = JSON.parse(
     localStorage.getItem("productReservedInLocal")
   );
   const redirectFav = JSON.parse(localStorage.getItem("goToFavs"));
 
+  // Función para loguear al usuario con JAVA, donde se envia el objeto por body.
+
+  // const onSubmit = async (values) => {
+  //   try {
+  //     const response = await axios.post(apiUserLogin, {
+  //       username: values.username,
+
+  //       password: values.password,
+  //     });
+  //     if (response.data.token) {
+  //       if (redirectFav) {
+  //         navigate("/favorites");
+  //       } else if (!redirectFav && productReservedInLocal) {
+  //         window.location.replace(productReservedInLocal);
+  //       } else {
+  //         navigate("/");
+  //       }
+  //       localStorage.removeItem("goToFavs");
+  //       localStorage.removeItem("productReservedInLocal");
+  //     }
+
+  //     localStorage.setItem("JWT", JSON.stringify(response.data.token));
+  //     localStorage.setItem("userInfo", JSON.stringify(response.data));
+  //     {
+  //       console.log(response.data);
+  //     }
+  //   } catch (error) {
+  //     setConnectionError(
+  //       "Lamentablemente no ha podido iniciar sesión. Por favor, intente más tarde"
+  //     );
+  //   }
+  // };
+
+  // Función para loguear al usuario con PYTHON, donde se envia el objeto por params.
+
   const onSubmit = async (values) => {
     try {
-      const response = await axios.post(apiUserLogin, {
-        username: values.username,
-
-        password: values.password,
+      const params = new URLSearchParams();
+      params.append('username', values.username);
+      params.append('password', values.password);
+  
+      const response = await axios.post(apiUserLogin, params, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       });
+  
       if (response.data.token) {
         if (redirectFav) {
           navigate("/favorites");
@@ -37,12 +77,9 @@ const LoginForm = () => {
         localStorage.removeItem("goToFavs");
         localStorage.removeItem("productReservedInLocal");
       }
-
-      localStorage.setItem("JWT", JSON.stringify(response.data.token));
+  
       localStorage.setItem("userInfo", JSON.stringify(response.data));
-      {
-        console.log(response.data);
-      }
+      console.log(response.data);
     } catch (error) {
       setConnectionError(
         "Lamentablemente no ha podido iniciar sesión. Por favor, intente más tarde"

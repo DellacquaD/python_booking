@@ -10,7 +10,7 @@ import Favorites from "../favorites/Favorites";
 import Spinner from "../favorites/Spinner";
 
 const Header = () => {
-  const loggedUser = JSON.parse(localStorage.getItem("JWT"));
+  const loggedUser = JSON.parse(localStorage.getItem("userInfo"));
   const location = useLocation();
   const [showFavsMenu, setShowFavsMenu] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -54,7 +54,7 @@ const Header = () => {
       "¿Estás seguro de que quieres cerrar la sesión?"
     );
     if (confirmLogout) {
-      localStorage.removeItem("JWT");
+      localStorage.removeItem("userInfo");
       navigate("/");
     }
   };

@@ -1,0 +1,70 @@
+.reserveWrapper {
+  width: 100%;
+  height: 83%;
+  position: fixed;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.reserveCardContainer {
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  padding: 50px 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 25px;
+}
+
+.reserveHeader {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0572d;
+  padding: 20px 50px;
+}
+
+.reserveHeader h1 {
+  color: white;
+  font-size: 26px;
+}
+
+.reserveHeader svg > * {
+  color: #ffffff;
+}
+
+.reserveHeader:hover svg {
+  cursor: pointer;
+}
+
+.reserveCard {
+  display: grid;
+  height: 100%;
+  padding: 15px 20px;
+  grid-template-rows: repeat(2, auto);
+  gap: 5px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: -1px 7px 18px 2px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: -1px 7px 18px 2px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: -1px 7px 18px 2px rgba(0, 0, 0, 0.4);
+}
+
+.reserveCard span {
+  font-weight: bold;
+}
+
+
+@media (max-width: 600px) {
+  .reserveCardContainer {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(auto-fill, 400px)
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 601px) {
+  .reserveCardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

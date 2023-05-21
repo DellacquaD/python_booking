@@ -1,0 +1,128 @@
+@import "../Home/Suggested.module.css";
+
+.favContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  background-color: #dfe4ea;
+  padding: 20px 50px 50px;
+}
+
+.favContainer h3 {
+  font-size: 2rem;
+  grid-column: span 3;
+}
+
+.favContainer hr {
+  grid-column: span 3;
+  margin-bottom: 50px;
+  border: solid 1px #f0572d;
+  display: none;
+}
+
+.favContainerHome .cardContainer {
+  height: 200px;
+  width: 100%;
+}
+
+.cardContainer > section {
+  grid-template-rows: repeat(1, 250px);
+}
+
+.favContainerHome .favHeader {
+  display: none;
+}
+
+.favContainerHome hr {
+  display: none;
+}
+.favContainerHome .productCategory {
+  display: none;
+}
+.favContainerHome .cardLocation {
+  display: none;
+}
+
+.favContainerHome .cardTitle {
+  grid-template-columns: 6fr 1fr;
+}
+
+.favContainerHome .review {
+  display: none;
+}
+
+.favContainerHome .valorationInfo {
+  justify-content: flex-start;
+}
+
+.favContainerHome .cardLocation div {
+  width: 100%;
+}
+
+.favContainerHome .productCategoryNameAndStars {
+  grid-template-rows: 1fr 1fr;
+}
+
+.favContainerHome .productCategoryNameAndStars div {
+  gap: 0;
+}
+
+.favContainerHome .cardContainer p {
+  font-style: normal;
+}
+
+.favContainerHome .cardContainer img {
+  height: 80%;
+}
+
+.favContainerHome p#suggestName {
+  font-size: 14px;
+}
+
+.favContainerHome .onClickMap {
+  display: none;
+}
+
+.favContainerHome .featuresBody .featureIcons > svg {
+  font-size: 18px;
+}
+
+.favContainerHome .cardInformation div p {
+  font-size: 12px;
+}
+
+.favContainerHome .cardInformation {
+  height: 200px;
+}
+
+.favContainerHome .seeMore {
+  width: 100%;
+}
+
+.favContainerHome .cardLocation p {
+  font-size: 14px;
+}
+
+.favContainerHome {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 20px;
+  width: 100%;
+}
+
+.noFav {
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .favContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .favContainer {
+    padding: 30px;
+  }
+}

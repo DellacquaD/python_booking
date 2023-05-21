@@ -1,0 +1,36 @@
+.favWrapper {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  top: 10%;
+  width: 100%;
+  height: fit-content;
+  max-height: 83%;
+  overflow-y: scroll;
+}
+
+.favWrapper h2 {
+  font-size: 22px;
+  padding: 20px 50px;
+}
+
+.favHeader {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0572d;
+  padding: 20px 50px;
+}
+
+.favHeader h1 {
+  color: white;
+  font-size: 26px;
+}
+
+.favHeader svg > * {
+  color: #ffffff;
+}
+
+.favHeader:hover svg {
+  cursor: pointer;
+}

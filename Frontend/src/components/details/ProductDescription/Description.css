@@ -1,0 +1,20 @@
+.description {
+  padding: 25px 50px 25px;
+}
+
+.description-text {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .description {
+    padding: 25px 25px 25px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .description {
+    padding: 5px 15px 15px;
+  }
+}

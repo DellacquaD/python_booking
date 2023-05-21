@@ -1,0 +1,286 @@
+.searcher {
+  position: fixed;
+  height: 11%;
+  width: calc(100% - 10px);
+  background-color: #191b1d;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 40% 40%;
+  grid-gap: 10px;
+}
+
+.searcher p {
+  margin: 5px;
+}
+
+.searcher h1 {
+  color: #dfe4ea;
+  font-size: 26px;
+  font-weight: 600;
+  justify-self: center;
+  margin: 5px;
+  grid-row: 1;
+  grid-column: 1 / 2;
+}
+
+#calendar {
+  align-items: center;
+  display: grid;
+  height: 100%;
+  padding: 0px 10px;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  background-color: #fff;
+}
+
+
+#btnSearch {
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(240, 87, 45);
+  color: #dfe4ea;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.searcherInputGrid {
+  grid-row: 2;
+  width: 100%;
+  display: grid;
+  justify-self: center;
+  gap: 10px;
+  justify-content: center;
+
+  grid-template-columns: 30% 30% 20%;
+  grid-template-rows: 100%;
+}
+
+.searcher section > div {
+  border-radius: 5px;
+}
+
+.states {
+  display: grid;
+}
+
+.locationContainer {
+  grid-row: 1;
+}
+
+#btnSearch {
+  grid-row: 1;
+  grid-column: 3 / 3;
+  width: 100%;
+}
+
+/* LOCATION FORM*/
+
+a {
+  text-decoration: none;
+  width: 100%;
+}
+
+.formClass {
+  display: grid;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  grid-template-rows: 100%;
+}
+
+.selectbox {
+  height: 100%;
+  width: 100%;
+
+  grid-template-rows: 100% auto;
+  display: grid;
+  border-radius: 5px;
+  gap: 5px;
+}
+
+#select {
+  border-radius: 5px;
+  height: 100%;
+
+  display: grid;
+  gap: 5px;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 100%;
+  align-items: center;
+  background-color: #fff;
+}
+
+#select > svg {
+  margin: 5px;
+  background-color: #fff;
+}
+
+#select > input {
+  width: 95%;
+  background-color: #fff;
+}
+
+.selectContent {
+  background-color: #dfe4ea;
+  height: 90%;
+  outline: none;
+  padding: 0 10px;
+}
+
+.selectContent > p {
+  font-size: 20px;
+  color: #191b1d;
+}
+
+#options {
+  position: absolute;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 350px;
+  width: 30%;
+  top: 90px;
+  display: none;
+  background-color: #fff;
+}
+
+#options::-webkit-scrollbar {
+  display: block;
+  width: 5px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+#options::-webkit-scrollbar-thumb {
+  background-color: rgba(240, 87, 45, 0.7);
+  border-radius: 20px;
+}
+
+#options > div {
+  display: grid;
+  
+}
+
+.contentOption:hover {
+  transform: scale(1.05);
+}
+
+#options.active {
+  display: block;
+}
+
+.contentOption {
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  transition: 0.2s ease all;
+  padding: 0 20px;
+  border-bottom: 2px solid rgba(240, 87, 45, 0.7);
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 15px;
+}
+
+.contentOption .texts {
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+.texts p {
+  color: #191b1d;
+  padding: 0;
+}
+
+#btnSearch:hover {
+  transform: scale(1.02);
+  opacity: 90%;
+}
+
+
+
+/* For mobile */
+
+@media (max-width: 320px) {
+  .searcher > h1 {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 600px) {
+  .searcher {
+    position: relative;
+    z-index: 2;
+    height: 35%;
+    justify-content: center;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    padding: 10px;
+  }
+  .picker {
+    margin: 0 10px;
+  }
+
+  .searcher > * {
+    align-items: center;
+  }
+
+  .searcher > h1 {
+    font-size: 1.1em;
+  }
+
+  .searcherInputGrid {
+    position: absolute;
+    grid-column: 1;
+    width: auto;
+    height: 100%;
+    grid-template-rows: 20% 20% 20%;
+    grid-template-columns: 80%;
+  }
+
+  .locationContainer {
+    height: 100%;
+    width: 100%;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 5;
+  }
+
+  #calendar {
+    width: 100%;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #btnSearch {
+    min-height: 100%;
+    width: 100%;
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  #options {
+    position: absolute;
+    width: 80%;
+  }
+
+  .contentOption {
+    flex-direction: row;
+  }
+
+  #btnSearch {
+    width: 100%;
+    height: 20%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #calendar {
+    padding: 0 0 0 5px;
+  }
+
+  .searcher h1 {
+    font-size: 26px;
+  }
+}

@@ -1,0 +1,212 @@
+.loginForm h1 {
+  font-weight: 700;
+  font-size: 24px;
+  color: #f0572d;
+  text-align: center;
+  line-height: 28px;
+  padding: 50px 0px 25px;
+}
+
+.registerForm h1 {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 24px;
+  color: #f0572d;
+  line-height: 28px;
+  padding: 50px 0px 25px;
+}
+
+.registerForm {
+  position: relative;
+  top: 80px;
+  min-height: calc(100vh - 80px - 58px);
+}
+
+.loginForm {
+  flex-direction: column;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 448px;
+  margin: 0 auto;
+  padding: 20px 5px;
+  font-weight: 500;
+  color: #31363f;
+}
+
+form p {
+  color: #ff0000;
+  line-height: 14.06px;
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+form input {
+  height: 45px;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 5px;
+  color: #31363f;
+  font-weight: 500;
+}
+
+form input:hover {
+  transform: scale(1.015);
+}
+
+form button {
+  height: 40px;
+  width: 206px;
+  align-self: center;
+  border-radius: 5px;
+  border: none;
+  background-color: #f0572d;
+  color: white;
+  margin-top: 50px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+label {
+  padding: 5px 0;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: rgb(227, 143, 112);
+  cursor: pointer;
+}
+
+input.input-error,
+select.input-error {
+  border: 1px solid #ff0000;
+  background-color: #ffe1e1;
+}
+
+button:disabled {
+  opacity: 0.35;
+}
+
+.register {
+  align-self: center;
+  color: black;
+}
+
+.login {
+  align-self: center;
+  color: black;
+}
+
+form div {
+  display: flex;
+}
+
+.alertContainer {
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #efe2e2cc;
+  padding: 15px 10px;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.alertContainer p {
+  color: #ba0d0d;
+  align-self: center;
+}
+
+.alertContainer svg > * {
+  color: #ba0d0d;
+}
+
+.userInfoFormRegister {
+  gap: 10px;
+}
+
+.nameInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.lastNameInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+form a:visited {
+  color: #4285f4;
+}
+
+a {
+  text-decoration: none;
+}
+
+#showPass {
+  position: relative;
+  width: 100%;
+}
+input {
+  padding: 0px 10px;
+}
+
+.showIcon {
+  font-size: 25px;
+  position: absolute;
+  right: 5%;
+  top: 10px;
+}
+
+#password {
+  width: 100%;
+}
+
+.showPass:hover {
+  cursor: pointer;
+}
+
+.apiEndpointError {
+  text-align: center;
+  color: red;
+}
+
+@media only screen and (max-width: 768px) {
+  form button {
+    height: 40px;
+    width: 346px;
+  }
+
+  form {
+    width: 346px;
+  }
+
+  form div {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  form button {
+    height: 40px;
+    width: 300px;
+  }
+
+  form {
+    width: 300px;
+  }
+
+  .showIcon {
+    top: 10px;
+    right: 15px;
+  }
+}

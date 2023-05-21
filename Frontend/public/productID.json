@@ -1,0 +1,155 @@
+[
+    {
+        "id": 1,
+        "title": "Hotel Select",
+        "description": "El Hotel Select se encuentra en Piriápolis y ofrece alojamiento con jardín, aparcamiento privado gratuito, salón compartido y terraza. Este hotel de 3 estrellas cuenta con club infantil, recepción 24 horas y WiFi gratuita. El establecimiento alberga un ba",
+        "stars": 3,
+        "scoring": 7,
+        "review": "Muy bueno",
+        "category": {
+            "title": "Hoteles"
+        },
+        "features": [
+            {
+                "id": 3,
+                "title": "Cocina"
+            },
+            {
+                "id": 2,
+                "title": "Pileta"
+            },
+            {
+                "id": 1,
+                "title": "Wifi"
+            }
+        ],
+        "images": [
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            }
+        ],
+        "address": {
+            "street": "Eduardo Acevedo",
+            "number": "1261",
+            "city": "San Salvador",
+            "state": "Jujuy",
+            "country": "Argentina"
+        },
+        "policy": {
+            "rules": "No fumar en las habitaciones o áreas comunes.No se permiten mascotas.No se permiten fiestas o eventos en las instalaciones.Se deben respetar las normas de convivencia y el descanso de los demás huéspedes.  ",
+            "security": "Mantén tus pertenencias personales seguras en todo momento, especialmente si viajas con objetos de valor. Usa la caja fuerte del hotel para guardar tus objetos de valor y no los dejes en lugares visibles.Si planeas hacer transacciones financieras en línea mientras estás hospedado, asegúrate de utilizar una conexión segura y evitar hacerlo en computadoras públicas o en redes Wi-Fi abiertas.",
+            "cancellation": "Política de cancelación flexible: permite cancelar la reserva sin cargo alguno si se realiza dentro de un plazo determinado antes de la fecha de llegada, por ejemplo, 24 o 48 horas antes de la llegada."
+        },
+        "reserve": null
+    },
+    {
+        "id": 1,
+        "title": "Hotel Select",
+        "description": "El Hotel Select se encuentra en Piriápolis y ofrece alojamiento con jardín, aparcamiento privado gratuito, salón compartido y terraza. Este hotel de 3 estrellas cuenta con club infantil, recepción 24 horas y WiFi gratuita. El establecimiento alberga un ba",
+        "stars": 3,
+        "scoring": 7,
+        "review": "Muy bueno",
+        "category": {
+            "title": "Hoteles"
+        },
+        "features": [
+            {
+                "id": 3,
+                "title": "Cocina"
+            },
+            {
+                "id": 2,
+                "title": "Pileta"
+            },
+            {
+                "id": 1,
+                "title": "Wifi"
+            }
+        ],
+        "images": [
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            },
+            {
+                "title": "Esta es la foto de un hotel",
+                "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            }
+        ],
+        "address": {
+            "street": "Eduardo Acevedo",
+            "number": "1261",
+            "city": "San Salvador",
+            "state": "Jujuy",
+            "country": "Argentina"
+        },
+        "policy": {
+            "rules": "No fumar en las habitaciones o áreas comunes.No se permiten mascotas.No se permiten fiestas o eventos en las instalaciones.Se deben respetar las normas de convivencia y el descanso de los demás huéspedes.  ",
+            "security": "Mantén tus pertenencias personales seguras en todo momento, especialmente si viajas con objetos de valor. Usa la caja fuerte del hotel para guardar tus objetos de valor y no los dejes en lugares visibles.Si planeas hacer transacciones financieras en línea mientras estás hospedado, asegúrate de utilizar una conexión segura y evitar hacerlo en computadoras públicas o en redes Wi-Fi abiertas.",
+            "cancellation": "Política de cancelación flexible: permite cancelar la reserva sin cargo alguno si se realiza dentro de un plazo determinado antes de la fecha de llegada, por ejemplo, 24 o 48 horas antes de la llegada."
+        },
+        "reserve": null
+    }
+
+]

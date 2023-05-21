@@ -1,0 +1,14 @@
+
+.socials {
+  width: 10vw;
+  display: flex;
+  gap: 15px;
+  align-self: center;
+  justify-content: flex-end;
+}
+
+@media (min-width: 600px) {
+  .socials a > svg > * {
+    color: #fff;
+  }
+}

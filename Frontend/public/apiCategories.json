@@ -1,0 +1,134 @@
+[
+    {
+        "id": "1",
+        "title": "Hoteles",
+        "quantity": 1258684,
+        "imageUrl": "https://images.unsplash.com/photo-1521783988139-89397d761dce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+    },
+    {
+        "id": "2",
+        "title": "Apartamentos",
+        "quantity": 78976,
+        "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+        "id": "3",
+        "title": "Resorts",
+        "quantity": 78785,
+        "imageUrl": "https://images.unsplash.com/photo-1617859047452-8510bcf207fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+        "id": "4",
+        "title": "Villas",
+        "quantity": 456,
+        "imageUrl": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+    },
+    {
+        "id": "5",
+        "title": "Chalets de montaña",
+        "quantity": 789,
+        "imageUrl": "https://images.unsplash.com/photo-1584551882400-a86ff441e474?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    },
+    {
+        "id": "6",
+        "title": "Cabañas y casas de campo",
+        "quantity": 456,
+        "imageUrl": "https://images.unsplash.com/photo-1579056259666-b084dd37ed36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+    },
+    {
+        "id": "7",
+        "title": "Glamping",
+        "quantity": 968,
+        "imageUrl": "https://images.unsplash.com/photo-1600786288830-9f5d4bf1d516?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+    },
+    {
+        "id": "8",
+        "title": "Casas y chalets",
+        "quantity": 43,
+        "imageUrl": "https://images.unsplash.com/photo-1607782984486-f1549c499162?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Q2FzYXMlMjB5JTIwY2hhbGV0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+        "id": "9",
+        "title": "Hostales y pensiones",
+        "quantity": 435,
+        "imageUrl": "https://images.unsplash.com/photo-1599323237263-8990d27604b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+    },
+    {
+        "id": "10",
+        "title": "Albergues",
+        "quantity":456 ,
+        "imageUrl": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+    },
+    {
+        "id": "11",
+        "title": "Moteles",
+        "quantity": 127,
+        "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+        "id": "12",
+        "title": "Bed and breakfasts",
+        "quantity": 163,
+        "imageUrl": "https://images.unsplash.com/photo-1617859047452-8510bcf207fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+        "id": "13",
+        "title": "Ryokans",
+        "quantity": 258,
+        "imageUrl": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+    },
+    {
+        "id": "14",
+        "title": "Riads",
+        "quantity": 104,
+        "imageUrl": "https://images.unsplash.com/photo-1584551882400-a86ff441e474?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    },
+    {
+        "id": "15",
+        "title": "Campings resort",
+        "quantity": 2024,
+        "imageUrl": "https://images.unsplash.com/photo-1600786288830-9f5d4bf1d516?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+    },
+    {
+        "id": "16",
+        "title": "Habitaciones en casas particulares",
+        "quantity": 2022,
+        "imageUrl": "https://images.unsplash.com/photo-1607782984486-f1549c499162?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Q2FzYXMlMjB5JTIwY2hhbGV0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+        "id": "17",
+        "title": "Campings",
+        "quantity": 3468,
+        "imageUrl": "https://images.unsplash.com/photo-1579056259666-b084dd37ed36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+    },
+    {
+        "id": "18",
+        "title": "Casas rurales",
+        "quantity": 989,
+        "imageUrl": "https://images.unsplash.com/photo-1599323237263-8990d27604b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+    },
+    {
+        "id": "19",
+        "title": "Agroturismos",
+        "quantity": 737,
+        "imageUrl": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+    },
+    {
+        "id": "20",
+        "title": "Barcos",
+        "quantity": 463,
+        "imageUrl": "https://images.unsplash.com/photo-1584551882400-a86ff441e474?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    },
+    {
+        "id": "21",
+        "title":"Tented camps",
+        "quantity": 1237,
+        "imageUrl": "https://images.unsplash.com/photo-1600786288830-9f5d4bf1d516?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+    },
+    {
+        "id": "22",
+        "title": "Alojamientos con cocina",
+        "quantity": 3512,
+        "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    }
+  ]

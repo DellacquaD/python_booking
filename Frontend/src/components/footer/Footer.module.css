@@ -1,0 +1,44 @@
+.footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-between;
+  background-color: #f0572d;
+  padding: 10px 40px;
+  height: 58px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.copyright span {
+  padding-bottom: 2px;
+  font-family: Quicksand;
+  font-weight: 700;
+  color: #dfe4ea;
+}
+
+.socialFooter {
+  color: white;
+  align-self: center;
+}
+
+.socialFooter div {
+  display: flex;
+  gap: 10px;
+}
+
+.socialFooter path {
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .socialFooter {
+    display: none;
+  }
+}

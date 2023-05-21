@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap%27');
+
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand";
+  color: #31363F;
+
+}
+
+.picker > * {
+  outline: none;
+  border:none
+}
+
+body {
+  background-color: #DFE4EA;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+}
+
+#root > div {
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  z-index: 10;
+  align-items: center;
+  padding: 0px 30px;
+  background-color: #ffffff;
+  box-shadow: -2px 4px 17px -4px rgb(179, 177, 177);
+  -webkit-box-shadow: -2px 4px 17px -4px rgb(181, 177, 177);
+  -moz-box-shadow: -2px 4px 17px -4px rgb(180, 177, 177, 1);
+}
+
+.footer {
+  height: 7%;
+}
+
+.home {
+  position: fixed;
+  top: 10%;
+  height: 83%;
+  width: 100%;
+  overflow-x: hidden;
+} 
+
+.home::-webkit-scrollbar {
+  display: block;
+  width: 10px;
+  background-color: rgba(0,0,0,.15);
+}
+
+.home::-webkit-scrollbar-thumb {
+  background-color: rgba(240, 87 ,45, .7);
+  border-radius: 20px;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .home {
+    background-color: #191b1d;
+  }
+}

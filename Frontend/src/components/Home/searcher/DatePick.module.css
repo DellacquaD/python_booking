@@ -1,0 +1,218 @@
+@import "../../details/ProductDetails.module.css";
+
+.picker {
+  width: 90%;
+  cursor: default;
+}
+
+.hideCalendar {
+  display: none;
+}
+
+.checkInCheckOut {
+  width: 100%;
+  display: flex;
+}
+.checkInCheckOut:hover {
+  cursor: pointer;
+}
+
+.clickIt {
+  animation-name: horizontal-shaking;
+  animation-duration: 0.5s;
+}
+
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.calendarLayout {
+  width: 100%;
+  padding-bottom: 40px;
+  background-color: white;
+}
+
+.checkInCheckOut input {
+  width: 20%;
+  min-width: 75px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.checkIn {
+  text-align: end;
+}
+
+.checkOut {
+  padding: 0 10px;
+  align-self: center;
+}
+
+.clearDate {
+  position: absolute;
+  top: -4.4vh;
+  left: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  border: none;
+}
+
+.dayOfMonth {
+  font-weight: normal;
+}
+
+.weekDays {
+  font-weight: normal;
+}
+
+.datePickCalendar {
+  width: 605px;
+  position: fixed;
+  top: 21%;
+  right: calc(60vw - 600px);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+  -webkit-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+  -moz-box-shadow: -2px 8px 17px -4px rgb(134, 133, 133);
+  z-index: 2;
+}
+
+.calendarDetails {
+  box-shadow: none;
+}
+
+.btnDatePick {
+  width: 160px;
+  height: 40px;
+  border: none;
+  background-color: rgb(240, 87, 45);
+  color: white;
+  border-radius: 7px;
+  align-self: flex-end;
+  position: absolute;
+  bottom: 15px;
+  right: 67px;
+  box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
+  -webkit-box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
+  -moz-box-shadow: -2px 4px 5px -4px rgb(134, 133, 133);
+}
+
+.btnDatePick:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+.btnDatePick:active {
+  box-shadow: 0 2px #82818163;
+  transform: translateY(2px);
+}
+
+.gridFirstMonth {
+  height: 100%;
+  border-right: none;
+}
+
+h4 {
+  padding-bottom: 15px;
+}
+.changeMonthButton:hover {
+  background-color: transparent;
+}
+
+.changeMonthButton {
+  align-self: flex-start;
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  box-shadow: none;
+}
+
+.changeMonthButton > svg > * {
+  color: #000000;
+}
+
+.left {
+  position: relative;
+  left: 50px;
+}
+
+.right {
+  position: relative;
+  right: 50px;
+}
+
+.selected {
+  height: 75%;
+}
+
+.rangeLimits {
+  height: 75%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .datePickCalendar {
+    width: 60vw;
+
+    left: 9vw;
+    min-width: 510px;
+  }
+
+  .btnDatePick {
+    width: 80%;
+    right: 10%;
+    left: 10%;
+  }
+
+  .checkOut {
+    padding: 0 5px;
+  }
+
+  .checkInCheckOut input {
+    font-size: 13px;
+    min-width: 65px;
+  }
+
+  .checkInInput {
+    width: 50px;
+  }
+
+  .clearDate {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .gridFirstMonth {
+    border-right: 0;
+    width: 100%;
+  }
+
+  .datePickCalendar {
+    top: 31%;
+    right: calc((100vw - 315px) / 2);
+    left: calc((100vw - 325px) / 2);
+    width: 315px;
+    min-width: 315px;
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "pi-g6",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "axios": "^1.3.4",
+    "date-fns": "^2.29.3",
+    "eslint": "^8.37.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "formik": "^2.2.9",
+    "framer-motion": "^10.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
+    "react-router": "^6.10.0",
+    "react-router-dom": "^6.10.0",
+    "react-share": "^4.4.1",
+    "sweetalert2": "^11.7.3",
+    "swiper": "^9.2.0",
+    "vite": "^4.2.1",
+    "yup": "^1.0.2"
+  }
+}

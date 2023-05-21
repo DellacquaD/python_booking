@@ -1,0 +1,88 @@
+.carousel {
+  position: relative;
+  top: 13%;
+  padding: 0px 15px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.carousel article {
+  margin-top: 10px;
+}
+
+.sliderCategories {
+    display: flex;
+    cursor: grab;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+  }  
+
+.carousel::-webkit-scrollbar {
+    height: 10px;
+    background-color: rgba(0,0,0,.15);
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background-color: rgba(240, 87 ,45, .7);
+    border-radius: 10px;
+}
+
+.sliderItem {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  border-radius: 10px;
+  margin: 10px 0px;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+}
+
+.sliderItem:hover {
+  transition: .3s;
+  transform: scale(1.02);
+}
+
+.sliderItem p {
+  padding: 0 10px;
+}
+
+
+.sliderItem img{
+  height: calc(250px - 63px);
+  width: 23.2vw;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.carousel article p:first-child {
+  font-size: 24px;
+  padding: 25px 0px 10px;
+  font-weight: bold;
+}
+
+.categoryTitle {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+@media (max-width: 600px) {
+  /* For mobile: */
+  .carousel {
+    margin: 0px 0px 10px;
+    top: 0px;
+  }
+  
+  .sliderItem img{
+    width: 85vw;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 601px) {
+  /* For tablet: */
+  .sliderItem img{
+    width: 46.5vw;
+  }
+}
+  

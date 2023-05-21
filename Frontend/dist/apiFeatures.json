@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "Wifi"
+    },
+    {
+        "id": 2,
+        "title": "Pileta"
+    },
+    {
+        "id": 3,
+        "title": "Cocina"
+    },
+    {
+        "id": 4,
+        "title": "Televisor"
+    },
+    {
+        "id": 5,
+        "title": "Apto mascotas"
+    },
+    {
+        "id": 6,
+        "title": "Aire acondicionado"
+    },
+    {
+        "id": 7,
+        "title": "Estacionamiento gratuito"
+    }
+]

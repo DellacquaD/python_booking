@@ -1,0 +1,698 @@
+[
+    {
+        "id": 1,
+        "name": "Uruguay",
+        "states": [
+            {
+                "id": 1,
+                "name": "Tacuarembó",
+                "cities": [
+                    {
+                        "id": 2,
+                        "name": "Paso de los Toros"
+                    },
+                    {
+                        "id": 13,
+                        "name": "Ansina"
+                    },
+                    {
+                        "id": 1,
+                        "name": "Tacuarembó"
+                    },
+                    {
+                        "id": 12,
+                        "name": "San Gregorio"
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "name": "San Jose",
+                "cities": [
+                    {
+                        "id": 23,
+                        "name": "San Jose"
+                    },
+                    {
+                        "id": 24,
+                        "name": "Libertad"
+                    }
+                ]
+            },
+            {
+                "id": 14,
+                "name": "Rio Negro",
+                "cities": [
+                    {
+                        "id": 40,
+                        "name": "Young"
+                    },
+                    {
+                        "id": 39,
+                        "name": "San Javier"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Canelones",
+                "cities": [
+                    {
+                        "id": 5,
+                        "name": "Atá¡ntida"
+                    },
+                    {
+                        "id": 18,
+                        "name": "Las Piedras"
+                    },
+                    {
+                        "id": 17,
+                        "name": "Barros Blancos"
+                    },
+                    {
+                        "id": 6,
+                        "name": "Ciudad de la Costa"
+                    }
+                ]
+            },
+            {
+                "id": 9,
+                "name": "Artigas",
+                "cities": [
+                    {
+                        "id": 30,
+                        "name": "Bella Union"
+                    },
+                    {
+                        "id": 29,
+                        "name": "Artigas"
+                    }
+                ]
+            },
+            {
+                "id": 10,
+                "name": "Rivera",
+                "cities": [
+                    {
+                        "id": 32,
+                        "name": "Tranqueras"
+                    },
+                    {
+                        "id": 31,
+                        "name": "Rivera"
+                    }
+                ]
+            },
+            {
+                "id": 16,
+                "name": "Durazno",
+                "cities": [
+                    {
+                        "id": 44,
+                        "name": "Centenario"
+                    },
+                    {
+                        "id": 43,
+                        "name": "Durazno "
+                    }
+                ]
+            },
+            {
+                "id": 21,
+                "name": "Rocha",
+                "cities": [
+                    {
+                        "id": 54,
+                        "name": "Punta del Diablo"
+                    },
+                    {
+                        "id": 53,
+                        "name": "Aguas Dulces"
+                    }
+                ]
+            },
+            {
+                "id": 15,
+                "name": "Cerro Largo",
+                "cities": [
+                    {
+                        "id": 41,
+                        "name": "Melo"
+                    },
+                    {
+                        "id": 42,
+                        "name": "Rio Branco"
+                    }
+                ]
+            },
+            {
+                "id": 19,
+                "name": "Florida",
+                "cities": [
+                    {
+                        "id": 49,
+                        "name": "Florida"
+                    },
+                    {
+                        "id": 50,
+                        "name": "25 de Agosto"
+                    }
+                ]
+            },
+            {
+                "id": 23,
+                "name": "Treinta y Tres",
+                "cities": [
+                    {
+                        "id": 58,
+                        "name": "Cerro Chato"
+                    },
+                    {
+                        "id": 57,
+                        "name": "Treinta y Tres"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Maldonado",
+                "cities": [
+                    {
+                        "id": 15,
+                        "name": "Maldonado"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Punta del Este"
+                    },
+                    {
+                        "id": 16,
+                        "name": "San Carlos"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Piriá¡polis"
+                    },
+                    {
+                        "id": 14,
+                        "name": "Punta Ballena"
+                    }
+                ]
+            },
+            {
+                "id": 18,
+                "name": "Flores",
+                "cities": [
+                    {
+                        "id": 48,
+                        "name": "Andresito"
+                    },
+                    {
+                        "id": 47,
+                        "name": "Trinidad"
+                    }
+                ]
+            },
+            {
+                "id": 20,
+                "name": "Lavalleja",
+                "cities": [
+                    {
+                        "id": 52,
+                        "name": "Solis de Mataojo"
+                    },
+                    {
+                        "id": 51,
+                        "name": "Minas"
+                    }
+                ]
+            },
+            {
+                "id": 8,
+                "name": "Paysandu",
+                "cities": [
+                    {
+                        "id": 28,
+                        "name": "Guichón"
+                    },
+                    {
+                        "id": 27,
+                        "name": "Paysandú"
+                    }
+                ]
+            },
+            {
+                "id": 17,
+                "name": "Soriano",
+                "cities": [
+                    {
+                        "id": 46,
+                        "name": "Palmar"
+                    },
+                    {
+                        "id": 45,
+                        "name": "Mercedes"
+                    }
+                ]
+            },
+            {
+                "id": 22,
+                "name": "Colonia",
+                "cities": [
+                    {
+                        "id": 55,
+                        "name": "Colonia del Sacramento"
+                    },
+                    {
+                        "id": 56,
+                        "name": "Nueva Helvecia"
+                    }
+                ]
+            },
+            {
+                "id": 13,
+                "name": "Salto",
+                "cities": [
+                    {
+                        "id": 38,
+                        "name": "Constitución"
+                    },
+                    {
+                        "id": 37,
+                        "name": "Salto"
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "name": "Montevideo",
+                "cities": [
+                    {
+                        "id": 25,
+                        "name": "Montevideo"
+                    },
+                    {
+                        "id": 26,
+                        "name": "Pando"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Argentina",
+        "states": [
+            {
+                "id": 27,
+                "name": "Córdoba",
+                "cities": [
+                    {
+                        "id": 65,
+                        "name": "Villa Carlos Paz"
+                    },
+                    {
+                        "id": 66,
+                        "name": "Cordoba"
+                    }
+                ]
+            },
+            {
+                "id": 29,
+                "name": "Formosa",
+                "cities": [
+                    {
+                        "id": 69,
+                        "name": "Formosa"
+                    },
+                    {
+                        "id": 70,
+                        "name": "Comandante Fontana"
+                    }
+                ]
+            },
+            {
+                "id": 41,
+                "name": "Tierra del Fuego",
+                "cities": [
+                    {
+                        "id": 94,
+                        "name": "San Sebastian"
+                    },
+                    {
+                        "id": 93,
+                        "name": "Ushuaia"
+                    }
+                ]
+            },
+            {
+                "id": 31,
+                "name": "La Rioja",
+                "cities": [
+                    {
+                        "id": 73,
+                        "name": "Nájera"
+                    },
+                    {
+                        "id": 74,
+                        "name": "Santo Domingo"
+                    }
+                ]
+            },
+            {
+                "id": 28,
+                "name": "Corrientes",
+                "cities": [
+                    {
+                        "id": 67,
+                        "name": "Concepción"
+                    },
+                    {
+                        "id": 68,
+                        "name": "Bella Vista"
+                    }
+                ]
+            },
+            {
+                "id": 39,
+                "name": "Santa Fe",
+                "cities": [
+                    {
+                        "id": 89,
+                        "name": "Rosario"
+                    },
+                    {
+                        "id": 90,
+                        "name": "Santa Fe"
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "name": "Entre Ríos",
+                "cities": [
+                    {
+                        "id": 9,
+                        "name": "ParanÃ¡"
+                    },
+                    {
+                        "id": 21,
+                        "name": "Colón"
+                    },
+                    {
+                        "id": 22,
+                        "name": "Villa Elisa"
+                    },
+                    {
+                        "id": 11,
+                        "name": "La Paz"
+                    },
+                    {
+                        "id": 10,
+                        "name": "Gualeguaychú"
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "name": "Misiones",
+                "cities": [
+                    {
+                        "id": 7,
+                        "name": "Posadas"
+                    },
+                    {
+                        "id": 19,
+                        "name": "Oberá"
+                    },
+                    {
+                        "id": 8,
+                        "name": "Puerto Iguazú"
+                    },
+                    {
+                        "id": 20,
+                        "name": "El Dorado"
+                    }
+                ]
+            },
+            {
+                "id": 30,
+                "name": "Jujuy",
+                "cities": [
+                    {
+                        "id": 72,
+                        "name": "Humahuaca"
+                    },
+                    {
+                        "id": 71,
+                        "name": "Purmamarca"
+                    }
+                ]
+            },
+            {
+                "id": 38,
+                "name": "Santa Cruz",
+                "cities": [
+                    {
+                        "id": 87,
+                        "name": "Pico Truncado"
+                    },
+                    {
+                        "id": 88,
+                        "name": "Perito Moreno"
+                    }
+                ]
+            },
+            {
+                "id": 26,
+                "name": "Chubut",
+                "cities": [
+                    {
+                        "id": 64,
+                        "name": "Puerto Madryn"
+                    },
+                    {
+                        "id": 63,
+                        "name": "Comodoro Rivadavia"
+                    }
+                ]
+            },
+            {
+                "id": 34,
+                "name": "Rio Negro",
+                "cities": [
+                    {
+                        "id": 80,
+                        "name": "General Roca"
+                    },
+                    {
+                        "id": 79,
+                        "name": "San Carlos de Bariloche"
+                    }
+                ]
+            },
+            {
+                "id": 32,
+                "name": "Mendoza",
+                "cities": [
+                    {
+                        "id": 75,
+                        "name": "Mendoza"
+                    },
+                    {
+                        "id": 76,
+                        "name": "Godoy Cruz"
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "name": "Buenos Aires",
+                "cities": [
+                    {
+                        "id": 34,
+                        "name": "Buenos Aires"
+                    },
+                    {
+                        "id": 33,
+                        "name": "Mar del Plata"
+                    }
+                ]
+            },
+            {
+                "id": 12,
+                "name": "La Pampa",
+                "cities": [
+                    {
+                        "id": 36,
+                        "name": "General Pico"
+                    },
+                    {
+                        "id": 35,
+                        "name": "Santa Rosa"
+                    }
+                ]
+            },
+            {
+                "id": 36,
+                "name": "San Juan",
+                "cities": [
+                    {
+                        "id": 84,
+                        "name": "Alto de Sierra"
+                    },
+                    {
+                        "id": 83,
+                        "name": "San Juan"
+                    }
+                ]
+            },
+            {
+                "id": 37,
+                "name": "San Luis",
+                "cities": [
+                    {
+                        "id": 86,
+                        "name": "Villa de Merlo"
+                    },
+                    {
+                        "id": 85,
+                        "name": "San Luis"
+                    }
+                ]
+            },
+            {
+                "id": 24,
+                "name": "Catamarca",
+                "cities": [
+                    {
+                        "id": 60,
+                        "name": "Santa Maria"
+                    },
+                    {
+                        "id": 59,
+                        "name": "\tSan Fernando del Valle de Catamarca"
+                    }
+                ]
+            },
+            {
+                "id": 33,
+                "name": "Neuquen",
+                "cities": [
+                    {
+                        "id": 78,
+                        "name": "San Martin de los Andes"
+                    },
+                    {
+                        "id": 77,
+                        "name": "Neuquen"
+                    }
+                ]
+            },
+            {
+                "id": 35,
+                "name": "Salta",
+                "cities": [
+                    {
+                        "id": 81,
+                        "name": "Rivadavia"
+                    },
+                    {
+                        "id": 82,
+                        "name": "Salta"
+                    }
+                ]
+            },
+            {
+                "id": 25,
+                "name": "Chaco",
+                "cities": [
+                    {
+                        "id": 61,
+                        "name": "Ciervo Petiso"
+                    },
+                    {
+                        "id": 62,
+                        "name": "San Bernardo"
+                    }
+                ]
+            },
+            {
+                "id": 40,
+                "name": "Santiago del Estero",
+                "cities": [
+                    {
+                        "id": 92,
+                        "name": "Santiago del Estero"
+                    },
+                    {
+                        "id": 91,
+                        "name": "Pozo Hondo"
+                    }
+                ]
+            },
+            {
+                "id": 42,
+                "name": "Tucuman",
+                "cities": [
+                    {
+                        "id": 96,
+                        "name": "El Manantial"
+                    },
+                    {
+                        "id": 95,
+                        "name": "San Miguel de Tucuman"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Brasil",
+        "states": [
+            {
+                "id": 45,
+                "name": "Santa Catarina",
+                "cities": [
+                    {
+                        "id": 102,
+                        "name": "Sao Jose"
+                    },
+                    {
+                        "id": 101,
+                        "name": "Camboriu"
+                    }
+                ]
+            },
+            {
+                "id": 44,
+                "name": "Sao Paulo",
+                "cities": [
+                    {
+                        "id": 100,
+                        "name": "Sao Vicente"
+                    },
+                    {
+                        "id": 99,
+                        "name": "Sao Paulo"
+                    }
+                ]
+            },
+            {
+                "id": 43,
+                "name": "Bahia",
+                "cities": [
+                    {
+                        "id": 97,
+                        "name": "Porto Seguro"
+                    },
+                    {
+                        "id": 98,
+                        "name": "Salvador de Bahia"
+                    }
+                ]
+            }
+        ]
+    }
+]

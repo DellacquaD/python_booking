@@ -1,0 +1,31 @@
+.details-product-header {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 10px 50px;
+  background-color: #f0572d;
+}
+
+.details-product-general-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details-product-general-info div p {
+  color: white;
+  font-weight: 700;
+}
+
+.details-place-name {
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+#details-back-arrow {
+  cursor: pointer;
+}
+
+#details-back-arrow > svg > * {
+  color: #fff;
+}

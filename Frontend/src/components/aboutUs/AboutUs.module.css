@@ -1,0 +1,28 @@
+.aboutUsContainer {
+    position: fixed;
+    top: 10%;
+    height: 83%;
+    width: 100%;
+    padding: 100px 0;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 25px;
+}
+
+.personalContainer {
+    display: grid;
+    place-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.personalImage {
+    width: 250px;
+    border-radius: 200px;
+}
+
+.personalName {
+    font-weight: bold;
+}

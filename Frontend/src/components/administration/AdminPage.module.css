@@ -1,0 +1,481 @@
+@import '../Home/searcher/Searcher.module.css';
+
+.requiredInput {
+    border: 2px solid red;
+    border-color: red;
+  }
+
+.adminContainer {
+    position: fixed;
+    top: 10%;
+    height: 83%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.adminContainer::-webkit-scrollbar {
+    display: block;
+    width: 10px;
+    background-color: rgba(0,0,0,.15);
+}
+
+.adminContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(240, 87 ,45, .7);
+    border-radius: 20px;
+}
+
+
+.productCreateContainer {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    padding: 40px;
+    width: 100%;
+    gap: 20px;
+}
+  
+.createProductAdminContainer {
+    border-radius: 10px;
+    display: grid;
+    gap: 40px;
+    padding: 40px 30px 60px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+}
+  
+.adminGridContainer {
+    background-color: #fff;
+    border-radius: 10px;
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr) 2fr;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+  
+.adminGridItem input {
+    height: 45px;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+}
+  
+.productName {
+    font-weight: bold;
+    grid-row: 1;
+    grid-column: 1;
+}
+  
+.productCategory {
+    font-weight: bold;
+    grid-row: 1;
+    grid-column: 2;
+}
+  
+.productAddress {
+    grid-row: 2;
+    font-weight: bold;
+    grid-column: 1;
+}
+  
+.productCity {
+    grid-row: 2;
+    font-weight: bold;
+    grid-column: 2;
+}
+  
+.productDescription {
+    grid-column: 1 / 3;
+    grid-row: 3;
+    font-weight: bold;
+}
+  
+.adminGridItem {
+    display: grid;
+    gap: 10px;
+}
+  
+  #addFeatureButton {
+    width: 20px;
+    max-height: 45px;
+    padding: 13px;
+    background-color: #4b9e71;
+    border-radius: 5px;
+}
+  
+  #addFeatureButton > path {
+    color: #fff
+}
+  
+  #removeFeatureButton {
+    width: 20px;
+    max-height: 45px;
+    padding: 13px;
+    background-color: #cf6d6d;
+    border-radius: 5px;
+}
+  
+  #removeFeatureButton > path {
+    color: #fff
+}
+  
+.featureListContainer {
+    display: grid;
+    gap: 10px;
+}
+  
+.iconForm {
+    display: grid;
+    grid-template-columns: 3fr 1fr repeat(1, auto);
+    height: 45px;
+    gap: 15px;
+}
+  
+.featureShowContainer {
+    position: relative;
+    display: grid;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+    gap: 10px;
+}
+
+
+.textarea {
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: none;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    padding: 10px;
+    outline: none;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+    border: none;
+}
+
+.textarea.requiredInput {
+    border: 2px solid red;
+    border-color: red;
+}
+  
+.newFeatureSelected {
+    padding: 10px;
+}
+  
+.iconForm > * {
+    box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+    border-radius: 5px;
+    background-color: #fff;
+}
+  
+.featureInputIcon {
+    display: grid;
+    height: 45px;
+    place-content: center;
+}
+  
+  #featureOptions.active {
+    display: grid;
+    z-index: 5;
+    padding: 0;
+}
+  
+  #featureOptions.inactive {
+    display: none;
+}
+  
+.featureInput {
+    width: 100%;
+    height: 45px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+  
+  #featureOptions {
+    overflow-y: scroll;
+    background-color: #fff;
+}
+
+#featureOptions::-webkit-scrollbar {
+    display: block;
+    width: 5px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+  
+#featureOptions::-webkit-scrollbar-thumb {
+    background-color: rgba(240, 87, 45, 0.7);
+    border-radius: 20px;
+}
+  
+  #featureOptions > div {
+    padding: 10px;
+}
+  
+  #featureOptions > div:hover {
+    background-color: #f0572dcc;
+}
+  
+.policiesContainer {
+    display: grid;
+    gap: 10px;
+}
+  
+.policiesDescriptions {
+    display: grid;
+    padding: 30px;
+    border-radius: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+    gap: 30px;
+}
+  
+.policiesSection {
+    display: grid;
+    gap: 15px;
+}
+
+.policiesSection p {
+    color: #31363F 
+}
+  
+.urlImagesGridContainer {
+    display: grid;
+    gap: 15px;
+}
+  
+.urlContainer {
+    display: grid;
+    gap: 15px;
+    padding: 30px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+}
+  
+.imagesInputContainer {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr auto;
+}
+  
+.imageInput {
+    width: 100%;
+    height: 45px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+}
+  
+.createProductButton {
+    width: 40%;
+    height: 70px;
+    place-self: center;
+    background-color: #f0572d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+  
+.inactive {
+    display: none;
+}
+  
+.imagePreviewContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.imageContainer {
+    height: 300px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+  
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+.imageWrapper {
+    position: relative;
+    height: 100%;
+}
+  
+.removeImageButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+  
+.removeImageButton > path {
+    color: #fff;
+}
+
+.selectCategoryInput {
+    position: relative;
+}
+
+#showCategoriesList {
+    position: absolute;
+    width: 100%;
+    max-height: 300px;
+    background-color: #fff;
+    gap: 10px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+    overflow-y: scroll;
+    z-index: 10;
+}
+
+#showCategoriesList::-webkit-scrollbar {
+    display: block;
+    width: 5px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+  
+#showCategoriesList::-webkit-scrollbar-thumb {
+    background-color: rgba(240, 87, 45, 0.7);
+    border-radius: 20px;
+}
+
+#showCategoriesList > div {
+    padding: 15px;
+}
+
+#showCategoriesList > *:hover {
+    background-color: #f0572dcc;
+}
+
+/*Sobreescribir estilos del searcher de ciudades*/
+
+#select {
+    grid-template-columns: repeat(1, auto);
+}
+
+.selectbox {
+    position: relative;
+    grid-template-rows: repeat(2, auto);
+    gap: 0;
+}
+
+#select > svg {
+    display: none;
+}
+
+#select input {
+    width: 100%;
+}
+
+#options.active {
+    position: absolute;
+    display: grid;
+    top: 50px;
+    width: 100%;
+    max-height: 350px;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+    border-radius: 5px;
+    z-index: 100;   
+}
+
+.texts {
+    display: grid;
+    gap:5px
+}
+
+.contentOption {
+    grid-template-columns: auto 1fr;
+    gap: 15px;
+    border-bottom: none;
+}
+
+.contentOption:hover {
+    transform: scale(1);
+    background-color: #f0572dcc;
+
+}
+
+.selectContent:hover {
+    transform: scale(1);
+}
+
+@media only screen and (max-width: 1024px) {
+    
+    .policiesDescriptions {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .policiesSection:last-child {
+        grid-column: 1/3;
+    }
+
+    .imagePreviewContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .policiesDescriptions {
+        grid-template-columns: repeat(1, auto);
+    }
+
+    .policiesSection:last-child {
+        grid-column: 1;
+    }
+
+    .imagePreviewContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .adminGridContainer {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, auto);
+        gap: 20px;
+    }
+
+    .productName {
+        font-weight: bold;
+        grid-row: 1;
+        grid-column: 1;
+    }
+      
+    .productCategory {
+        font-weight: bold;
+        grid-row: 3;
+        grid-column: 1;
+    }
+      
+    .productAddress {
+        grid-row: 2;
+        font-weight: bold;
+        grid-column: 1;
+    }
+      
+    .productCity {
+        grid-row: 4;
+        font-weight: bold;
+        grid-column: 1;
+    }
+      
+    .productDescription {
+        grid-column: 1;
+        grid-row: 5;
+        font-weight: bold;
+    }
+    
+}

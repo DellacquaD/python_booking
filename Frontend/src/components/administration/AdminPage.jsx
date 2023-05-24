@@ -72,29 +72,33 @@ const AdminPage = () => {
     const form = event.target.form;
     if (form.checkValidity()) {
       const token = JSON.parse(localStorage.getItem('JWT'));
+      const productData = {
+        title: productName,
+        description: productDescription,
+        stars: 3,
+        scoring: 7,
+        review: 'Muy bueno',
+        category: productCategory,
+        features: features,
+        policy: {
+            rules: rules,
+            security: security,
+            cancellation: cancellation
+        },
+        images: imageList,
+        address: {  
+          street: `${splitAddress(productAddress).street}`,
+          number: `${splitAddress(productAddress).number}`,
+          city: productCity,
+        }
+      };
+  
+      console.log(productData); // Agregar esta línea
+  
       axios
         .post(
           apiProduct,
-          {
-            title: productName,
-            description: productDescription,
-            stars: 3,
-            scoring: 7,
-            review: 'Muy bueno',
-            category: productCategory,
-            features: features,
-            policy: {
-                rules: rules,
-                security: security,
-                cancellation: cancellation
-            },
-            images: imageList,
-            address: {  
-              street: `${splitAddress(productAddress).street}`,
-              number: `${splitAddress(productAddress).number}`,
-              city: productCity,
-            }
-          },
+          productData,
           {
             headers: {
               "Content-Type": "application/json",

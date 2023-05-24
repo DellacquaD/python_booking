@@ -1,15 +1,16 @@
 from pydantic import BaseModel
-
+from .policy import Policy
+from .address import Address
+from .image import Image
 
 class Product(BaseModel):
-    product_id: int
-    description: str
-    review: str
-    scoring: int
-    stars: int
     title: str
-    address: object
-    images: list
+    address: Address
+    description: str
+    stars: int
+    scoring: int
+    review: str
+    category: int
     features: list
-    category_id: int
-    policy_id: int
+    policy: Policy
+    images: list[Image]

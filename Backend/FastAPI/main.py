@@ -22,7 +22,7 @@ app.add_middleware(
 )
 
 # Rutas
-app.include_router(users_db.router)
+# app.include_router(users_db.router)
 app.include_router(products_db.router)
 app.include_router(cities_db.router)
 app.include_router(category_db.router)

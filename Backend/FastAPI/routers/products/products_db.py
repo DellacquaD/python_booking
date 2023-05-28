@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException, status, Response
 from db.schemas.products import product_schema, products_schema
-from db.database import connect_to_database, close_database_connection
-from db.models.product import Product
-from mysql.connector import Error
+from db.database import get_database_session, close_database_session
+from sqlalchemy import text
+from sqlalchemy.exc import SQLAlchemyError
 
 from .queries import (
     GET_RANDOM_PRODUCTS,
@@ -11,16 +11,13 @@ from .queries import (
     GET_PRODUCTS_BY_CITY,
     GET_PRODUCTS_BY_CITY_AND_DATES
 )
+from db.mod import Product as ProductModel, Policy as PolicyModel, Address as AddressModel, Feature as FeatureModel, Image as ImageModel
 
 router = APIRouter(
     prefix="/product",
     tags=["product"],
     responses={404: {"message": "No encontrado"}},
 )
-
-# Establecer la conexión a la base de datos MySQL
-db = connect_to_database()
-client = db.cursor()
 
 # GETS
 
@@ -46,180 +43,115 @@ async def get_products_by_city_and_dates(city_name: str, checkin: str, checkout:
 
 # Obtener 8 productos RANDOM
 def search_random_products():
-    client.execute(GET_RANDOM_PRODUCTS)
-    results = client.fetchall()
-    random_products = products_schema(results)
+    with get_database_session() as session:
+        results = session.execute(text(GET_RANDOM_PRODUCTS)).fetchall()
+        random_products = products_schema(results)
     return random_products
 
 # Obtener producto por su ID
 def search_product_by_id(key):
-    values = (key,)
-    client.execute(GET_PRODUCT_BY_ID, values)
-    result = client.fetchone()
+    session = get_database_session()
+    result = session.execute(GET_PRODUCT_BY_ID, (key,)).fetchone()
     if result:
         product_selected = product_schema(result, include_policy=True, include_reserve=True)
+        session.close()
         return product_selected
     else:
+        session.close()
         raise HTTPException(status_code=404, detail="Producto no encontrado")
 
 # Obtener productos por su categoría
 def search_products_by_category(key):
-    values = (key,)
-    client.execute(GET_PRODUCTS_BY_CATEGORY, values)
-    results = client.fetchall()
+    session = get_database_session()
+    results = session.execute(GET_PRODUCTS_BY_CATEGORY, (key,)).fetchall()
     products = products_schema(results)
+    session.close()
     return products
 
 # Obtener productos por su ciudad
 def search_products_by_city(key):
-    values = (key,)
-    client.execute(GET_PRODUCTS_BY_CITY, values)
-    results = client.fetchall()
+    session = get_database_session()
+    results = session.execute(GET_PRODUCTS_BY_CITY, (key,)).fetchall()
     products = products_schema(results)
+    session.close()
     return products
 
 # Obtener productos por su ciudad y fechas disponibles
 def search_products_by_city_and_dates(name, checkin, checkout):
-    values = (name, checkout, checkin)
-    client.execute(GET_PRODUCTS_BY_CITY_AND_DATES, values)
-    results = client.fetchall()
+    session = get_database_session()
+    results = session.execute(GET_PRODUCTS_BY_CITY_AND_DATES, (name, checkout, checkin)).fetchall()
     products = products_schema(results)
+    session.close()
     return products
 
-# POSTS
-
-# @router.post("/")
-# async def register_product(product: Product):
-#     # Verificar si el usuario ya existe en la base de datos
-
-#     # Realizar las operaciones necesarias para guardar el usuario en la base de datos
-#     if not db:
-#         raise HTTPException(
-#             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-#             detail="Error connecting to the database"
-#         )
-
-#     try:
-#         cursor = db.cursor()
-#         # Insertar politicas del alojamiento y recuperar el id
-#         query = "INSERT INTO policy (rules, security, cancellation) VALUES (%s, %s, %s)"
-#         values = (product.policy.rules, product.policy.security, product.policy.cancellation)
-#         cursor.execute(query, values)
-#         product_policy = cursor.lastrowid
-#         product.policy = product_policy
-#         # Insertar dirección del alojamiento y recuperar el id
-#         query = "INSERT INTO address (number, street, city_id) VALUES (%s, %s, %s)"
-#         values = (product.address.number, product.address.street, int(product.address.city))
-#         cursor.execute(query, values)
-#         address_id = cursor.lastrowid
-#         product.address = address_id
-#         # Insertar alojamiento y recuperar el id
-#         query = "INSERT INTO product (description, review, scoring, stars, title, address_address_id, category_id, policy_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
-#         values = (product.description, product.review, int(product.scoring), int(product.stars), product.title, int(product.address), int(product.category), int(product.policy))
-#         cursor.execute(query, values)
-#         product_id = int(cursor.lastrowid)
-#         # Insertar características del alojamiento
-#         for feature in product.features:
-#             feature_id = feature
-#             query = "INSERT INTO product_feature (products_product_id, features_feature_id) VALUES (%s, %s)"
-#             values = (int(product_id), int(feature_id))
-#             cursor.execute(query, values)
-#         for image in product.images:
-#             query = "INSERT INTO image (image_url, title, product_id) VALUES (%s, %s, %s)"
-#             values = (image.imageUrl, image.title, product_id)
-#             cursor.execute(query, values)
-#         db.commit()
-#         cursor.close()
-#         close_database_connection(db)
-
-#         # Retornar una respuesta exitosa
-#         return {"message": "Product registered successfully"}
-
-#     except Error:
-#         # Manejar cualquier error que pueda ocurrir durante la inserción en la base de datos
-#         db.rollback()
-#         cursor.close()
-#         close_database_connection(db)
-#         raise HTTPException(
-#             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-#             detail="Error registering product"
-#         )
-
 @router.post("/")
-async def register_product(product: Product):
-    # Verificar si el usuario ya existe en la base de datos
-
+async def register_product(response: Response):
     # Realizar las operaciones necesarias para guardar el usuario en la base de datos
-    if not db:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Error connecting to the database"
-        )
-
     try:
-        cursor = db.cursor()
+        session = get_database_session()
 
-        # Insertar politicas del alojamiento y recuperar el id
-        query = "INSERT INTO policy (rules, security, cancellation) VALUES (%s, %s, %s)"
-        values = (product.policy.rules, product.policy.security, product.policy.cancellation)
-        cursor.execute(query, values)
-        product_policy = cursor.lastrowid
-        product.policy = product_policy
+        # Insertar políticas del alojamiento y recuperar el id
+        policy = PolicyModel(
+            rules=response.policy.rules,
+            security=response.policy.security,
+            cancellation=response.policy.cancellation
+        )
+        session.add(policy)
+        session.flush()
+        product_policy = policy.policy_id
 
         # Insertar dirección del alojamiento y recuperar el id
-        query = "INSERT INTO address (number, street, city_id) VALUES (%s, %s, %s)"
-        values = (product.address.number, product.address.street, int(product.address.city))
-        cursor.execute(query, values)
-        address_id = cursor.lastrowid
-        product.address = address_id
+        address = AddressModel(
+            number=response.address.number,
+            street=response.address.street,
+            city_id=response.address.city
+        )
+        session.add(address)
+        session.flush()
+        address_id = address.address_id
 
         # Insertar alojamiento y recuperar el id
-        query = "INSERT INTO product (description, review, scoring, stars, title, address_address_id, category_id, policy_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
-        values = (product.description, product.review, int(product.scoring), int(product.stars), product.title, int(product.address), int(product.category), int(product.policy))
-        cursor.execute(query, values)
-        product_id = int(cursor.lastrowid)
+        new_product = ProductModel(
+            description=response.description,
+            review=response.review,
+            scoring=response.scoring,
+            stars=response.stars,
+            title=response.title,
+            address_address_id=address_id,
+            category_id=response.category,
+            policy_id=product_policy
+        )
+        session.add(new_product)
+        session.flush()
+        product_id = new_product.product_id
 
         # Insertar características del alojamiento
-        for feature in product.features:
-            feature_id = feature
-            query = "INSERT INTO product_feature (products_product_id, features_feature_id) VALUES (%s, %s)"
-            values = (int(product_id), int(feature_id))
-            cursor.execute(query, values)
+        for feature_id in response.features:
+            feature = FeatureModel(products_product_id=product_id, features_feature_id=feature_id)
+            session.add(feature)
 
         # Insertar imágenes del alojamiento
-        for image in product.images:
-            query = "INSERT INTO image (image_url, title, product_id) VALUES (%s, %s, %s)"
-            values = (image.imageUrl, image.title, product_id)
-            cursor.execute(query, values)
+        for image in response.images:
+            image_model = ImageModel(
+                image_url=image.imageUrl,
+                title=image.title,
+                product_id=product_id
+            )
+            session.add(image_model)
 
-        db.commit()
-        cursor.close()
-        close_database_connection(db)
+        session.commit()
 
         # Retornar una respuesta exitosa
         response = Response(content={"message": "Product registered successfully"})
         response.headers["Access-Control-Allow-Origin"] = "http://localhost:5173"
+        session.close()
         return response
-        # return {"message": "Product registered successfully"}
 
-    except Error:
+    except SQLAlchemyError:
         # Manejar cualquier error que pueda ocurrir durante la inserción en la base de datos
-        db.rollback()
-        cursor.close()
-        close_database_connection(db)
-        
+        session.rollback()
+        session.close()
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Error registering product"
         )
-
-
-
-# Cerrar la conexión a la base de datos al finalizar la aplicación
-def close_database():
-    close_database_connection(db)
-
-# Evento de cierre de la aplicación
-@router.on_event("shutdown")
-def on_shutdown():
-    close_database()

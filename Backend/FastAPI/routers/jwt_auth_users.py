@@ -4,8 +4,12 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import jwt, JWTError
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
-from db.database import connect_to_database, close_database_connection
-from mysql.connector import Error
+from sqlalchemy.orm import Session
+from sqlalchemy.exc import SQLAlchemyError
+from db.mod import User
+from db.schem import UserDBSchema
+from db.database import get_database_session, close_database_session
+
 
 ALGORITHM = "HS256"
 ACCESS_TOKEN_DURATION = 10
@@ -19,14 +23,6 @@ oauth2 = OAuth2PasswordBearer(tokenUrl="login")
 
 crypt = CryptContext(schemes=["bcrypt"])
 
-
-class User(BaseModel):
-    username: str
-    first_name: str
-    last_name: str
-    email: str
-
-
 class UserDB(BaseModel):
     username: str
     first_name: str
@@ -34,154 +30,125 @@ class UserDB(BaseModel):
     email: str
     password: str
 
-
-# Establecer la conexión a la base de datos MySQL
-db = connect_to_database()
-client = db.cursor()
-
-def close_database():
-    close_database_connection(db)
-
-# Evento de cierre de la aplicación
 @router.on_event("shutdown")
-def on_shutdown():
-    close_database()
+async def on_shutdown():
+    database_session = get_database_session()
+    close_database_session(database_session)
 
-
-def search_user(username: str):
-    db = connect_to_database()
-    if not db:
+def search_user(username: str, session: Session):
+    try:
+        user = session.query(User).filter(User.username == username).first()
+        if user:
+            return UserDBSchema.from_orm(user)
+        else:
+            return None
+    except SQLAlchemyError as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Error connecting to the database")
-
-    cursor = db.cursor()
-    query = "SELECT * FROM users WHERE username = %s"
-    cursor.execute(query, (username,))
-    user_row = cursor.fetchone()
-    cursor.close()
-    close_database_connection(db)
-
-    if not user_row:
-        return None
-
-    user = UserDB(
-        username=user_row[0],
-        first_name=user_row[1],
-        last_name=user_row[2],
-        email=user_row[3],
-        password=user_row[4]
-    )
-
-    return user
-
+            detail="Error connecting to the database",
+        )
+    
 async def auth_user(token: str = Depends(oauth2)):
-
     exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Invalid authentication credentials",
-        headers={"WWW-Authenticate": "Bearer"})
+        headers={"WWW-Authenticate": "Bearer"},
+    )
 
     try:
         username = jwt.decode(token, SECRET, algorithms=[ALGORITHM]).get("sub")
         if username is None:
             raise exception
-
     except JWTError:
         raise exception
 
-    return search_user(username)
+    session = get_database_session()
+    try:
+        return search_user(username, session)
+    finally:
+        session.close()
 
 
-async def current_user(user: User = Depends(auth_user)):
-    if user.disabled:
+async def current_user(user: UserDB = Depends(auth_user)):
+    if not user:
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Inactive user")
+            status_code=status.HTTP_400_BAD_REQUEST, detail="Inactive user"
+        )
 
     return user
 
 
 @router.post("/login")
 async def login(form: OAuth2PasswordRequestForm = Depends()):
+    session = get_database_session()
+    try:
+        user = session.query(User).filter(User.username == form.username).first()
+        if not user:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid username"
+            )
 
-    db = connect_to_database()
-    if not db:
+        if not crypt.verify(form.password, user.password):
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid password"
+            )
+
+        token = {
+            "sub": user.username,
+            "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_DURATION),
+        }
+
+        return {
+            "token": jwt.encode(token, SECRET, algorithm=ALGORITHM),
+            "token_type": "bearer",
+            "role": user.role,
+            "firstname": user.first_name,
+            "lastname": user.last_name,
+        }
+    except SQLAlchemyError as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Error connecting to the database")
-
-    cursor = db.cursor()
-    query = f"""
-        SELECT username, first_name, last_name, email, password, role FROM users 
-        WHERE username = %s
-    """
-    cursor.execute(query, (form.username,))
-    user_row = cursor.fetchone()
-    cursor.close()
-    close_database_connection(db)
-
-    if not user_row:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Invalid username")
-
-    user = UserDB(
-        username=user_row[0],
-        first_name=user_row[1],
-        last_name=user_row[2],
-        email=user_row[3],
-        password=user_row[4]
-    )
-
-    if not crypt.verify(form.password, user.password):
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Invalid password")
-
-    token = {
-        "sub": user.username,
-        "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_DURATION)
-    }
-
-    return {"token": jwt.encode(token, SECRET, algorithm=ALGORITHM), "token_type": "bearer", "role": user_row[5], "firstname": user_row[1], "lastname": user_row[2]}
+            detail="Error connecting to the database",
+        )
+    finally:
+        session.close()
 
 @router.post("/register")
-async def register_user(user: UserDB):
+async def register_user(user: UserDBSchema):
     # Verificar si el usuario ya existe en la base de datos
-    existing_user = search_user(user.username)
-    if existing_user:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Username already exists"
-        )
-
-    # Realizar las operaciones necesarias para guardar el usuario en la base de datos
-    db = connect_to_database()
-    if not db:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Error connecting to the database"
-        )
-
+    session = get_database_session()
     try:
-        cursor = db.cursor()
-        query = "INSERT INTO users (username, first_name, last_name, email, password) VALUES (%s, %s, %s, %s, %s)"
-        values = (user.username, user.first_name, user.last_name, user.email, crypt.hash(user.password))
-        cursor.execute(query, values)
-        db.commit()
-        cursor.close()
-        close_database_connection(db)
+        existing_user = session.query(User).filter(User.username == user.username).first()
+        if existing_user:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Username already exists"
+            )
+
+        # Crear una nueva instancia de User a partir de los datos recibidos
+        new_user = User(
+            username=user.username,
+            first_name=user.first_name,
+            last_name=user.last_name,
+            email=user.email,
+            password=crypt.hash(user.password)
+        )
+
+        # Agregar el nuevo usuario a la sesión y guardar en la base de datos
+        session.add(new_user)
+        session.commit()
 
         # Retornar una respuesta exitosa
         return {"message": "User registered successfully"}
 
-    except Error:
+    except Exception as e:
         # Manejar cualquier error que pueda ocurrir durante la inserción en la base de datos
-        db.rollback()
-        cursor.close()
-        close_database_connection(db)
+        session.rollback()
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Error registering user"
         )
+
+    finally:
+        # Cerrar la sesión de la base de datos
+        session.close()

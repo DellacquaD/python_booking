@@ -1,78 +1,59 @@
 from fastapi import APIRouter, HTTPException, status
-from db.models.category import Category
-from db.schemas.category import category_schema, categorys_schema
-from mysql.connector import connect, Error
+from sqlalchemy import func
+from sqlalchemy.orm import Session
+from db.mod import Category
+from db.database import get_database_session
 
 router = APIRouter(prefix="/category",
                    tags=["category"],
                    responses={status.HTTP_404_NOT_FOUND: {"message": "No encontrado"}})
-
-# Establecer la conexión a la base de datos MySQL
-try:
-    db = connect(
-        host="localhost",
-        user="root",
-        password="Defensor_1995",
-        database="python_booking",
-    )
-    print("Connected to MySQL")
-except Error as e:
-    print(f"Error al conectarse a la base de datos: {e}")
-    exit()
-
-# Obtener una referencia al cliente de la base de datos
-client = db.cursor()
-
-
 # GET
 
 @router.get("/")
-async def get_categorys():
-    return category_list()
+def get_categorys():
+    session = get_database_session()
+    try:
+        categories = session.query(Category).all()
+        category_list = [category.to_dict() for category in categories]
+        return category_list
+    finally:
+        session.close()
+
 ################################################################
 
 def category_list():
-    query = "SELECT * FROM category"
-    client.execute(query)
-    result = client.fetchall()
-    result_list = [dict(zip(client.column_names, row)) for row in result]
-    return categorys_schema(result_list)
+    session = get_database_session()
+    try:
+        categories = session.query(Category).all()
+        category_list = [category.to_dict() for category in categories]
+        return category_list
+    finally:
+        session.close()
 
 
-def search_category(field: str, key):
-    query = "SELECT * FROM category WHERE category_id = %s".format(field)
-    values = (key,)
-    client.execute(query, values)
-    result = client.fetchone()
+def search_category(session: Session, field: str, key):
+    try:
+        if field == "category_id":
+            query = session.query(Category).filter(Category.category_id == key).first()
+        else:
+            return None
 
-    if result is not None:
-        return Category(
-            category_id=result[0],
-            description=result[1],
-            image_url=result[2],
-            quantity=result[3],
-            title=result[4]
-        )
-    else:
+        if query:
+            return query.to_dict()
+        else:
+            return None
+    except Exception as e:
+        print(f"Error al buscar la categoría: {e}")
         return None
     
-def search_random_categorys():
-    query = "SELECT * FROM category ORDER BY RAND() LIMIT 8"
-    client.execute(query)
-    results = client.fetchall()
-
-    random_categorys = []
-    for result in results:
-        random_categorys.append(Category(
-            category_id=result[0],
-            description=result[1],
-            image_url=result[2],
-            quantity=result[3],
-            title=result[4]
-        ))
-
-    return random_categorys 
-
+def search_random_categorys(session: Session):
+    try:
+        query = session.query(Category).order_by(func.rand()).limit(8).all()
+        random_categorys = [category.to_dict() for category in query]
+        return random_categorys
+    except Exception as e:
+        print(f"Error al buscar las categorías aleatorias: {e}")
+        return []
 # POST 
 
 # @router.post("/", response_model=category, status_code=status.HTTP_201_CREATED)

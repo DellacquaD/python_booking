@@ -42,7 +42,7 @@ class Category(Base):
 
     def to_dict(self):
         return {
-            'category_id': self.category_id,
+            'id': self.category_id,
             'description': self.description,
             'imageUrl': self.image_url,
             'quantity': self.quantity,

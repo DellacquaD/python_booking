@@ -9,7 +9,6 @@ import { GlobalContext } from "../../../utils/globalContext";
 const Searcher = () => {
   const [selected, setSelected] = useState("");
   const { state, dispatch } = useContext(GlobalContext);
-  const [citySelected, setCitySelected] = useState("")
 
   const handleSelectCity = () => {
     dispatch({ type: "city", payload: selected.split(",")[0] });

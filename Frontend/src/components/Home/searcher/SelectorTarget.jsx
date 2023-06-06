@@ -69,7 +69,6 @@ const SelectorTarget = ({ styles, setSelected , setProductCity }) => {
                               onClick={() => {
                                 setSearch(`${city.name}, ${countrys.name}`)
                                 setSelected(`${city.name}, ${countrys.name}`)
-                                setProductCity(city.id)
                                 ;
                               }}
                             >

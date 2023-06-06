@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, status
 from sqlalchemy.orm import Session
 from db.mod import Reserve
-from db.schemas.reserve import reserve_schema, reserves_schema
+from db.schem import reserve_schema, reserves_schema
 from db.database import get_database_session
 from .queries import GET_RESERVE_BY_PRODUCT, GET_RESERVE_BY_USER
 

@@ -147,7 +147,7 @@ GET_PRODUCTS_BY_CATEGORY = f"""
     LEFT JOIN country AS co ON s.country_id = co.country_id
     LEFT JOIN image AS i ON p.product_id = i.product_id
     LEFT JOIN category AS cat ON p.category_id = cat.category_id
-    WHERE p.category_id = %s
+    WHERE p.category_id = :key
     GROUP BY p.product_id;
     """
 
@@ -191,7 +191,7 @@ GET_PRODUCTS_BY_CITY = f"""
     LEFT JOIN country AS co ON s.country_id = co.country_id
     LEFT JOIN image AS i ON p.product_id = i.product_id
     LEFT JOIN category AS cat ON p.category_id = cat.category_id
-    WHERE c.name = %s
+    WHERE c.name = :key
     GROUP BY p.product_id;
     """
 
@@ -235,11 +235,11 @@ GET_PRODUCTS_BY_CITY_AND_DATES = f"""
     LEFT JOIN country AS co ON s.country_id = co.country_id
     LEFT JOIN image AS i ON p.product_id = i.product_id
     LEFT JOIN category AS cat ON p.category_id = cat.category_id
-    WHERE c.name = %s
+    WHERE c.name = :name
     AND p.product_id NOT IN (
         SELECT r.product_id
         FROM reserve AS r
-        WHERE r.check_out >= %s AND r.check_in <= %s
+        WHERE r.check_out >= :checkin AND r.check_in <= :checkout
     )
     GROUP BY p.product_id
     """

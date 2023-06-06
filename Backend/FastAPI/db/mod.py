@@ -44,7 +44,7 @@ class Category(Base):
         return {
             'category_id': self.category_id,
             'description': self.description,
-            'image_url': self.image_url,
+            'imageUrl': self.image_url,
             'quantity': self.quantity,
             'title': self.title
         }
@@ -153,7 +153,3 @@ product_feature = Table(
     Column('product_id', Integer, ForeignKey('product.product_id')),
     Column('feature_id', Integer, ForeignKey('feature.feature_id')),
 )
-
-# Actualizar la relación entre Product y Feature
-Product.features = relationship("Feature", secondary=product_feature, back_populates="products")
-Feature.products = relationship("Product", secondary=product_feature, back_populates="features")

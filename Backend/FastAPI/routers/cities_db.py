@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, status, Depends
 from sqlalchemy.orm import Session
-from db.mod import City, State, Country
+from db.mod import City, State
+
 from db.database import get_database_session
 
 router = APIRouter(prefix="/country",

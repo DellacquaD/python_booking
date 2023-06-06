@@ -1,8 +1,9 @@
-from fastapi import APIRouter, HTTPException, status, Response
-from db.schemas.products import product_schema, products_schema
+from fastapi import APIRouter, HTTPException
+from db.schem import product_schema, products_schema
 from db.database import get_database_session, close_database_session
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
+from db.schem import ProductSchema
 
 from .queries import (
     GET_RANDOM_PRODUCTS,
@@ -63,7 +64,7 @@ def search_product_by_id(key):
 # Obtener productos por su categoría
 def search_products_by_category(key):
     session = get_database_session()
-    results = session.execute(GET_PRODUCTS_BY_CATEGORY, (key,)).fetchall()
+    results = session.execute(text(GET_PRODUCTS_BY_CATEGORY).params(key=key)).fetchall()
     products = products_schema(results)
     session.close()
     return products
@@ -71,7 +72,7 @@ def search_products_by_category(key):
 # Obtener productos por su ciudad
 def search_products_by_city(key):
     session = get_database_session()
-    results = session.execute(GET_PRODUCTS_BY_CITY, (key,)).fetchall()
+    results = session.execute(text(GET_PRODUCTS_BY_CITY).params(key=key)).fetchall()
     products = products_schema(results)
     session.close()
     return products
@@ -79,22 +80,22 @@ def search_products_by_city(key):
 # Obtener productos por su ciudad y fechas disponibles
 def search_products_by_city_and_dates(name, checkin, checkout):
     session = get_database_session()
-    results = session.execute(GET_PRODUCTS_BY_CITY_AND_DATES, (name, checkout, checkin)).fetchall()
+    results = session.execute(text(GET_PRODUCTS_BY_CITY_AND_DATES).params(name=name, checkin=checkin, checkout=checkout)).fetchall()
     products = products_schema(results)
     session.close()
     return products
 
 @router.post("/")
-async def register_product(response: Response):
+async def register_product(product: ProductSchema):
     # Realizar las operaciones necesarias para guardar el usuario en la base de datos
     try:
         session = get_database_session()
 
         # Insertar políticas del alojamiento y recuperar el id
         policy = PolicyModel(
-            rules=response.policy.rules,
-            security=response.policy.security,
-            cancellation=response.policy.cancellation
+            rules=product.policy.rules,
+            security=product.policy.security,
+            cancellation=product.policy.cancellation
         )
         session.add(policy)
         session.flush()
@@ -102,9 +103,9 @@ async def register_product(response: Response):
 
         # Insertar dirección del alojamiento y recuperar el id
         address = AddressModel(
-            number=response.address.number,
-            street=response.address.street,
-            city_id=response.address.city
+            number=product.address.number,
+            street=product.address.street,
+            city_id=product.address.city
         )
         session.add(address)
         session.flush()
@@ -112,13 +113,13 @@ async def register_product(response: Response):
 
         # Insertar alojamiento y recuperar el id
         new_product = ProductModel(
-            description=response.description,
-            review=response.review,
-            scoring=response.scoring,
-            stars=response.stars,
-            title=response.title,
+            description=product.description,
+            review=product.review,
+            scoring=product.scoring,
+            stars=product.stars,
+            title=product.title,
             address_address_id=address_id,
-            category_id=response.category,
+            category_id=product.category,
             policy_id=product_policy
         )
         session.add(new_product)
@@ -126,12 +127,14 @@ async def register_product(response: Response):
         product_id = new_product.product_id
 
         # Insertar características del alojamiento
-        for feature_id in response.features:
-            feature = FeatureModel(products_product_id=product_id, features_feature_id=feature_id)
-            session.add(feature)
+        for feature_id in product.features:
+            feature = session.query(FeatureModel).filter_by(feature_id=feature_id).first()
+            if feature is None:
+                feature = FeatureModel(feature_id=feature_id)
+                session.add(feature)
 
         # Insertar imágenes del alojamiento
-        for image in response.images:
+        for image in product.images:
             image_model = ImageModel(
                 image_url=image.imageUrl,
                 title=image.title,
@@ -142,16 +145,12 @@ async def register_product(response: Response):
         session.commit()
 
         # Retornar una respuesta exitosa
-        response = Response(content={"message": "Product registered successfully"})
-        response.headers["Access-Control-Allow-Origin"] = "http://localhost:5173"
+        mesaage = "Product registered successfully"
         session.close()
-        return response
+        return mesaage
 
-    except SQLAlchemyError:
-        # Manejar cualquier error que pueda ocurrir durante la inserción en la base de datos
+    except SQLAlchemyError as e:
         session.rollback()
         session.close()
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Error registering product"
-        )
+        error_message = str(e)  # Obtén el mensaje de error de la excepción
+        print("Error en la base de datos:", error_message)  # Imprime el mensaje de error

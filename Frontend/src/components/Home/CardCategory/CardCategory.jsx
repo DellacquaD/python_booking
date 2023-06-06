@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styles from "./CardCategory.module.css";
 import { GlobalContext } from "../../../utils/globalContext";
 
-const Carousel = (category) => {
+const CardCategory = ( { id, title, quantity, imageUrl } ) => {
   const { dispatch } = useContext(GlobalContext);
 
   return (
@@ -11,17 +11,17 @@ const Carousel = (category) => {
       onDoubleClick={() =>
         dispatch({
           type: "data",
-          payload: { data: category.id, categorySelected: category.title },
+          payload: { data: id, categorySelected: title },
         })
       }
     >
-      <img src={category.imageUrl} alt="" />
+      <img src={imageUrl} alt="" />
       <div className={styles.categoryInfo}>
-        <p className={styles.categoryTitle}>{category.title}</p>
-        <p>{category.quantity} disponibles</p>
+        <p className={styles.categoryTitle}>{title}</p>
+        <p>{quantity} disponibles</p>
       </div>
     </div>
   );
 };
 
-export default Carousel;
+export default CardCategory;

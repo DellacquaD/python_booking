@@ -21,6 +21,7 @@ const Suggested = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log(state.data)
       if (state.data === 0 && !state.city) {
         try {
           const res = await axios.get(apiProductRandom);
@@ -34,7 +35,7 @@ const Suggested = () => {
           dispatch({ type: "bd", payload: fallbackData.data });
           setSuggestMessage('Recomendaciones')
         }
-      } else if (state.data > 0) {
+      } else if (state.data > 0){
         try {
           const res = await axios.get(`${apiProductByCategory}${state.data}`);
           dispatch({ type: "bd", payload: res.data });

@@ -339,6 +339,7 @@
     box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
     overflow-y: scroll;
     z-index: 10;
+    flex-direction: column;
 }
 
 #showCategoriesList::-webkit-scrollbar {

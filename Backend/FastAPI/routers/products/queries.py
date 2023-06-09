@@ -84,19 +84,25 @@ GET_PRODUCT_BY_ID =  f"""
             'security', pol.security,
             'cancellation', pol.cancellation
         ) AS policy,
-        COALESCE(
-            (
-                SELECT JSON_ARRAYAGG(
-                    JSON_OBJECT(
-                        'reserve_id', r.reserve_id,
-                        'check_in', r.check_in
-                    )
+        (
+            SELECT CASE
+                WHEN EXISTS (
+                    SELECT *
+                    FROM reserve AS r
+                    WHERE r.product_id = p.product_id AND r.reserve_id IS NOT NULL
                 )
-                FROM reserve AS r
-                WHERE r.product_id = p.product_id AND r.reserve_id IS NOT NULL
-            ),
-            JSON_ARRAY()
-        ) AS reserves
+                THEN
+                    (SELECT JSON_ARRAYAGG(
+                        JSON_OBJECT(
+                            'reserve_id', r.reserve_id,
+                            'check_in', r.check_in
+                        )
+                    )
+                    FROM reserve AS r
+                    WHERE r.product_id = p.product_id AND r.reserve_id IS NOT NULL)
+                ELSE NULL
+            END
+        ) AS reserve
     FROM product AS p
     LEFT JOIN address AS a ON p.address_address_id = a.address_id
     LEFT JOIN city AS c ON a.city_id = c.city_id

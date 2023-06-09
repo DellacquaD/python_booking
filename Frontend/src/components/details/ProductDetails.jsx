@@ -159,7 +159,7 @@ const ProductDetails = () => {
               <Calendar
                 product={product}
                 styles={styles}
-                reservations={product.reserve}
+                reservations={Array.isArray(product.reserve) ? product.reserve : []}
               />
               <div className={styles.reservationDetails}>
                 <p>Agregá tus fechas de viaje para obtener precios exactos</p>

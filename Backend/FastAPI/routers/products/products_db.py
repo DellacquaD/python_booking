@@ -52,7 +52,7 @@ def search_random_products():
 # Obtener producto por su ID
 def search_product_by_id(key):
     session = get_database_session()
-    result = session.execute(GET_PRODUCT_BY_ID, (key,)).fetchone()
+    result = session.execute(text(GET_PRODUCT_BY_ID), {"key": key}).fetchone()
     if result:
         product_selected = product_schema(result, include_policy=True, include_reserve=True)
         session.close()

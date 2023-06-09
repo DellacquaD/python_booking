@@ -47,7 +47,7 @@ GET_RANDOM_PRODUCTS = """
         """
 
 GET_PRODUCT_BY_ID =  f"""
-       SELECT
+      SELECT
         p.product_id AS id,
         p.title,
         JSON_OBJECT(
@@ -84,15 +84,18 @@ GET_PRODUCT_BY_ID =  f"""
             'security', pol.security,
             'cancellation', pol.cancellation
         ) AS policy,
-        (
-            SELECT JSON_ARRAYAGG(
-                JSON_OBJECT(
-                    'reserve_id', r.reserve_id,
-                    'check_in', r.check_in
+        COALESCE(
+            (
+                SELECT JSON_ARRAYAGG(
+                    JSON_OBJECT(
+                        'reserve_id', r.reserve_id,
+                        'check_in', r.check_in
+                    )
                 )
-            )
-            FROM reserve AS r
-            WHERE r.product_id = p.product_id AND r.reserve_id IS NOT NULL
+                FROM reserve AS r
+                WHERE r.product_id = p.product_id AND r.reserve_id IS NOT NULL
+            ),
+            JSON_ARRAY()
         ) AS reserves
     FROM product AS p
     LEFT JOIN address AS a ON p.address_address_id = a.address_id
@@ -102,7 +105,7 @@ GET_PRODUCT_BY_ID =  f"""
     LEFT JOIN image AS i ON p.product_id = i.product_id
     LEFT JOIN category AS cat ON p.category_id = cat.category_id
     LEFT JOIN policy AS pol ON p.policy_id = pol.policy_id
-    WHERE p.product_id = %s
+    WHERE p.product_id = :key
     GROUP BY p.product_id;
     """
 

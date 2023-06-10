@@ -21,7 +21,6 @@ const Suggested = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(state.data)
       if (state.data === 0 && !state.city) {
         try {
           const res = await axios.get(apiProductRandom);
